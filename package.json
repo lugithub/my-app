@@ -23,7 +23,8 @@
       "src/**/*.{js,jsx}",
       "!src/index.js",
       "!src/serviceWorker.js"
-    ]
+    ],
+    "globalSetup": "<rootDir>/src/globalSetupTests.js"
   },  
   "browserslist": [
     ">0.2%",
