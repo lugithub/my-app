@@ -1,17 +1,17 @@
-console.log('setupTests', 'per test file');
+// console.log('setupTests', 'per test file');
 
 beforeAll(() => {
-    console.log('setupTests', 'beforeAll')
+    // console.log('setupTests', 'beforeAll')
 });
 afterAll(() => {
     // jest.restoreAllMocks();
-    console.log('setupTests', 'afterAll')
+    // console.log('setupTests', 'afterAll')
 });
 
 beforeEach(() => {
-    console.log('setupTests', 'beforeEach')
+    // console.log('setupTests', 'beforeEach')
 });
 afterEach(() => {
     // jest.restoreAllMocks();
-    console.log('setupTests', 'afterEach')
+    // console.log('setupTests', 'afterEach')
 });

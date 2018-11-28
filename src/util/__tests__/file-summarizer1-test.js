@@ -8,7 +8,7 @@ import FileSummarizer from '../file-summarizer';
 
 describe('listFilesInDirectorySync', () => {
 
-  test('includes all files in the directory in the summary', () => {
+it.only('includes all files in the directory in the summary', () => {
     const fileSummary = FileSummarizer.summarizeFilesInDirectorySync(
       'c:/',
     );

@@ -24,6 +24,7 @@
       "!src/index.js",
       "!src/serviceWorker.js"
     ],
+    "resetMocks": true,
     "globalSetup": "<rootDir>/src/globalSetupTests.js"
   },  
   "browserslist": [
