@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<fieldset>
+  <legend>
+    Enter temperature in 
+    :
+  </legend>
+  <input
+    aria-label="ggg"
+    value={1010}
+  />
+</fieldset>
+`;

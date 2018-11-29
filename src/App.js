@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { TemperatureInput } from './temperature/temperature-input';
 function toCelsius(fahrenheit) {
   return (fahrenheit - 32) * 5 / 9;
 }
@@ -15,27 +16,6 @@ function BoilingVerdict(props) {
     return <p>The water would boil.</p>;
   }
   return <p>The water would not boil.</p>;
-}
-
-const scaleNames = {
-  c: 'Celsius',
-  f: 'Fahrenheit'
-};
-
-class TemperatureInput extends React.Component {
-  render() {    
-    const scale = this.props.scale;
-    const labelText = 'ggg';
-    return (
-      <fieldset>
-        <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input 
-          aria-label={labelText}
-          value={this.props.temperature}
-          onChange={this.props.handleChange} />
-      </fieldset>
-    );
-  }
 }
 
 class Calculator extends React.Component {

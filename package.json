@@ -26,11 +26,14 @@
     ],
     "resetMocks": true,
     "globalSetup": "<rootDir>/src/globalSetupTests.js"
-  },  
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-test-renderer": "^16.6.3"
+  }
 }
