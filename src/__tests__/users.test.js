@@ -4,6 +4,18 @@ import Users from '../users';
 //automatically mock a module
 jest.mock('axios');
 
+const myObj = {
+    myMethod: jest.fn(() => {
+        return 'aaap';
+    })
+};
+
+it('mock name', () => {
+    //myObj.myMethod() returns undefined,
+    //because jest  "resetMocks": true,
+    expect(myObj.myMethod()).toBe('aaap');
+});
+
 describe('Users', () => {
     const user = {name: 'Bob'};
 
