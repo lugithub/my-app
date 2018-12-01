@@ -10,5 +10,8 @@ exports[`renders correctly 1`] = `
     aria-label="ggg"
     value={1010}
   />
+  <div
+    className="bar"
+  />
 </fieldset>
 `;

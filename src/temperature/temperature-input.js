@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Foo } from './foo';
+
 const scaleNames = {
   c: 'Celsius',
   f: 'Fahrenheit'
@@ -16,6 +18,7 @@ export class TemperatureInput extends React.Component {
           aria-label={labelText}
           value={this.props.temperature}
           onChange={this.props.handleChange} />
+        <Foo />
       </fieldset>
     );
   }
