@@ -3,6 +3,8 @@ import logo from './logo.svg';
 
 import './App.css';
 import { TemperatureInput } from './temperature/temperature-input';
+import TodoApp from './todos/todo-app';
+
 function toCelsius(fahrenheit) {
   return (fahrenheit - 32) * 5 / 9;
 }
@@ -56,7 +58,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <img src={logo}  className="App-logo" alt="Logo" />
-        <Calculator />
+        <TodoApp />
       </React.Fragment>
     );
   }
