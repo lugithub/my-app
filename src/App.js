@@ -54,7 +54,10 @@ class Calculator extends React.Component {
 class App extends Component {
   render() {
     return (
-      <Calculator />
+      <React.Fragment>
+        <img src={logo}  className="App-logo" alt="Logo" />
+        <Calculator />
+      </React.Fragment>
     );
   }
 }
