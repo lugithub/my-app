@@ -20,20 +20,24 @@ export default class TodoApp extends Component {
     // e.target is mutable
 
     const {target: {value}} = e;
-    this.setState((state, props) => {
-      return { 
-        todoInput: value,
-      };
+
+    return new Promise((resolve, reject) => {
+      this.setState((state, props) => {
+        return { 
+          todoInput: value,
+        };
+      }, resolve);
     });
   }
 
   addToDo() {
-    this.setState((state, props) => {
-        const nextId = state.todos.length
-      return { 
-        todos: [...state.todos, {id: this.nextId(), label: state.todoInput}],
-        todoInput: '',
-     }});
+    return new Promise(resolve => {
+      this.setState((state, props) => {        
+        return { 
+          todos: [...state.todos, {id: this.nextId(), label: state.todoInput}],
+          todoInput: '',
+       }}, resolve);
+    });
   }
 
   nextId() {
