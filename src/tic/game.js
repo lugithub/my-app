@@ -3,6 +3,7 @@ import React from 'react';
 import Board from './board';
 import './tic.css';
 import calculateWinner from './calculate-winner';
+import Steps from './steps';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -10,28 +11,41 @@ export default class Game extends React.Component {
     this.state = {
       history: [{
         squares: Array(9).fill(null),
+        position: null,
       }],
       xIsNext: true,
     };
   }
   
   handleClick(i) {
-
-    if (this.winner || this.squares[i]) {
+    if (this.winner || this.draw || this.squares[i]) {
       return;
     }
 
     this.setState(({ history, xIsNext }, props) => {
       const squaresNew = this.squares.map((item, index) => index === i ? this.nextLabel : item);
       return {
-        history: [...history, { squares: squaresNew }],
+        history: [...history, {
+          position: i,
+          squares: squaresNew,
+        }],
         xIsNext: !xIsNext,
       };
     });
   }
 
+  get draw() {
+    const { draw } = calculateWinner(this.squares);
+    return draw;    
+  }
   get winner() {
-    return calculateWinner(this.squares);
+    const { winner } = calculateWinner(this.squares);
+    return winner;
+  }
+
+  get squaresWon() {
+    const { squaresWon } = calculateWinner(this.squares);
+    return squaresWon;
   }
 
   get nextLabel() {
@@ -49,7 +63,10 @@ export default class Game extends React.Component {
     let status = `Next player: ${this.nextLabel}`;
     if (this.winner) {
       status = `Winner: ${this.winner}`;
+    } else if (this.draw) {
+      status = 'Draw';
     }
+
     return status;
   }
 
@@ -63,11 +80,7 @@ export default class Game extends React.Component {
   }
 
   render() {
-    let moves = this.state.history.map(
-      (item, index) => (
-        <li key={index}>
-          <button onClick={this.jumpTo.bind(this, index)}>{index === 0 ? 'Goto start' : `Goto step ${index}`}</button>
-        </li>));
+    let { history } = this.state;
 
     return (
       <div className="game">
@@ -75,11 +88,12 @@ export default class Game extends React.Component {
           <Board
             squares={this.squares}
             status={this.status}
+            squaresWon={this.squaresWon}
             onClick={this.handleClick.bind(this)} />
         </div>
         <div className="game-info">
           <div>{this.status}</div>
-          <ol>{moves}</ol>
+          <Steps history={history} jumpTo={this.jumpTo.bind(this)} />
         </div>
       </div>
     );
