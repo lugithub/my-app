@@ -10,7 +10,10 @@ function TodoAdd({ currentLabel, nextId, typeTodo, addTodo }) {
       <h2>What needs to be done?</h2>
       <input
         value={currentLabel}
-        onChange={e => typeTodo(e.target.value)}
+        onChange={e => {
+          e.preventDefault();
+          return typeTodo(e.target.value);
+        }}
         className="todo-input"
         type="text" />
       <button onClick={() => addTodo(currentLabel)}>Add # {nextId}</button>
